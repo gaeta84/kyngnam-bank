@@ -7,8 +7,17 @@ const routes: Array<RouteConfig> = [
   {
     path: "/",
     name: "sendView",
-    component: () =>
-      import("@/views/SendMessageView.vue"),
+    component: () => import("@/views/SendMessageView.vue"),
+  },
+  {
+    path: "/dropzone",
+    name: "dropZone",
+    component: () => import("@/components/elements/dropZone.vue"),
+  },
+  {
+    path: "/tree",
+    name: "tree",
+    component: () => import("@/components/elements/tree.vue"),
   },
 ];
 

@@ -1,5 +1,5 @@
 import { ISendMessageRequestValue } from "@/network/value/request/UseCaseRequestValue";
-import SendMessageRepository from "@/repositories/SendMessageRepository";  
+import SendMessageRepository from "@/network/repository/SendMessageRepository";  
   
 export default class SendMessageUseCase {
     sendMessageRepository = new SendMessageRepository()
