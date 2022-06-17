@@ -1,5 +1,5 @@
 <template>
-  <div class="container">
+  <div class="dropzone_container">
     <p>dropzone 라이브러리 브라우저 테스트</p>
     <vue-dropzone
       ref="dropzone"
@@ -16,6 +16,7 @@ import Vue from "vue";
 import vueDropzone from "vue2-dropzone";
 
 export default Vue.extend({
+  name: "DropZone",
   data() {
     return {
       dropOptions: {
@@ -43,15 +44,3 @@ export default Vue.extend({
   },
 });
 </script>
-<style lang="scss">
-.container {
-  margin-top: 100px;
-}
-p {
-  font-size: 18px;
-  font-weight: 700;
-}
-button {
-  margin-top: 10px;
-}
-</style>

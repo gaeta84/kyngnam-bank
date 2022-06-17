@@ -1,0 +1,43 @@
+@charset "utf-8";
+
+#app {
+  font-family: "Roboto";
+}
+
+.header_conteainer {
+  header {
+    height: 30px;
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    background-color: black;
+    color: white;
+    margin: 0px auto;
+    padding: 20px;
+    border: 1px solid #bcbcbc;
+  }
+}
+.dropzone_container {
+  margin-top: 100px;
+  p {
+    font-size: 18px;
+    font-weight: 700;
+  }
+  button {
+    margin-top: 10px;
+  }
+}
+.footer_conteainer {
+  footer {
+    height: 5px;
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    background-color: black;
+    color: white;
+    padding: 20px;
+    border: 1px solid #bcbcbc;
+  }
+}

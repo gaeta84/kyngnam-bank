@@ -1,18 +1,17 @@
-import axios from 'axios';
-import { NetworkClient } from './NetworkClient';
-import { APIResponse } from './APIResponse';
-import { APIRequest } from './APIRequest';
-import { APIError } from './APIError';
+import axios from "axios";
+import { APIResponse } from "@/network/api/api-response";
+import { APIRequest } from "@/network/api/api-request";
+import { APIError } from "@/network/api/api-error";
 
 export enum HTTPMethod {
-  GET = 'GET',
-  POST = 'POST',
-  DELETE = 'DELETE',
-  PUT = 'PUT'
+  GET = "GET",
+  POST = "POST",
+  DELETE = "DELETE",
+  PUT = "PUT",
 }
 
 // APIClient is client class for xhr request
-export class APIClient implements NetworkClient {
+export class APIClient {
   static instance = new APIClient();
 
   // Base fqdn for api endpoints
@@ -34,36 +33,35 @@ export class APIClient implements NetworkClient {
           method: request.method,
           params: isRead && params,
           data: !isRead && params,
-         
+
           withCredentials: true,
           timeout: this.timeout,
           baseURL: request.baseURL || this.baseURL,
-          headers: APIClient.createHeaders(request.headers)
+          headers: APIClient.createHeaders(request.headers),
         })
-        .then(data => {
+        .then((data) => {
           resolve(APIClient.parse<U>(data));
         })
-      
-        .catch(err => {
+
+        .catch((err) => {
           const apiError = this.normalizeError(err);
           reject(apiError);
         });
     });
   }
 
-   // Default parser
-   private static parse<U extends APIResponse>(data: any): U {
+  // Default parser
+  private static parse<U extends APIResponse>(data: any): U {
     let res = data;
-  
+
     console.log(`res code:::${res.status}`);
     console.log(res);
     if (res.status === 200) {
-      let _data = res.data.data ? res.data.data : res.data; 
-      data.data = { code: 200, data: _data }
-    } 
+      let _data = res.data.data ? res.data.data : res.data;
+      data.data = { code: 200, data: _data };
+    }
     return data.data;
   }
-
 
   // Convert axios error into APIError
   private normalizeError(error: any): APIError {
@@ -72,12 +70,12 @@ export class APIClient implements NetworkClient {
       message: error.message,
       code: error.response.data.code,
       data: error.response.data,
-      raw: error
+      raw: error,
     };
   }
 
   // Create headers
   private static createHeaders(headers: any): any {
-    return headers ? headers : {}
+    return headers ? headers : {};
   }
 }

@@ -1,60 +1,62 @@
 <template>
-  <div class="inputs">
-    <el-form :model="sendMessage" class="demo-ruleForm">
-      <div class="topLine">----</div>
-      <el-form-item required>
-        <el-select
-          v-model="sendMessage.value"
-          filterable
-          placeholder="최근발신번호"
-          @change="phoneNumberChange($event)"
-          allow-create
-          default-first-option
-          style="width: 320px"
-        >
-          <el-option
-            v-for="item in options"
-            :key="item.value"
-            :value="item.value"
-          />
-        </el-select>
-      </el-form-item>
-      <el-form-item required>
-        <el-col :span="20">
-          <el-input
-            v-model="sendMessage.textarea"
-            :rows="12"
-            type="textarea"
-            @input="bytesCount"
-          />
-        </el-col>
-      </el-form-item>
-      <div class="validation-box">
-        <span class="message-name">{{ messageText }}</span>
-        <span class="check-bytes" :style="{ color: isRed }"
-          >{{ byteLength }} / {{ totalByteLength }} Bytes</span
-        >
-      </div>
-      <div class="button-box">
-        <el-button type="primary" round size="small" @click="moveDropzone"
-          >dropzone 이동</el-button
-        >
-        <el-button type="primary" round size="small" @click="moveTree"
-          >tree 이동</el-button
-        >
-        <el-button type="primary" round size="small" @click="sendBtn"
-          >즉시전송</el-button
-        >
-        <ConfirmDialog :dialog="confirmDialog" @confirm="confirmBtn" />
-        <ConfirmDialog :dialog="successDialog" @confirm="successBtn" />
-      </div>
-    </el-form>
+  <div class="send_message_container">
+    <div class="inputs">
+      <el-form :model="sendMessage" class="demo-ruleForm">
+        <div class="topLine">----</div>
+        <el-form-item required>
+          <el-select
+            v-model="sendMessage.value"
+            filterable
+            placeholder="최근발신번호"
+            @change="phoneNumberChange($event)"
+            allow-create
+            default-first-option
+            style="width: 320px"
+          >
+            <el-option
+              v-for="item in options"
+              :key="item.value"
+              :value="item.value"
+            />
+          </el-select>
+        </el-form-item>
+        <el-form-item required>
+          <el-col :span="20">
+            <el-input
+              v-model="sendMessage.textarea"
+              :rows="12"
+              type="textarea"
+              @input="bytesCount"
+            />
+          </el-col>
+        </el-form-item>
+        <div class="validation-box">
+          <span class="message-name">{{ messageText }}</span>
+          <span class="check-bytes" :style="{ color: isRed }"
+            >{{ byteLength }} / {{ totalByteLength }} Bytes</span
+          >
+        </div>
+        <div class="button-box">
+          <el-button type="primary" round size="small" @click="moveDropzone"
+            >dropzone 이동</el-button
+          >
+          <el-button type="primary" round size="small" @click="moveTree"
+            >tree 이동</el-button
+          >
+          <el-button type="primary" round size="small" @click="sendBtn"
+            >즉시전송</el-button
+          >
+          <ConfirmDialog :dialog="confirmDialog" @confirm="confirmBtn" />
+          <ConfirmDialog :dialog="successDialog" @confirm="successBtn" />
+        </div>
+      </el-form>
+    </div>
   </div>
 </template>
 
 <script lang="ts">
 import Vue from "vue";
-import Utils from "@/scripts/MainUtils";
+import Utils from "@/scripts/utils";
 import ConfirmDialog from "@/components/common/SendConfirm.vue";
 import SendMessageUseCase from "@/usecases/SendMessageUseCase";
 export default Vue.extend({

@@ -36,7 +36,7 @@ import Vue from "vue";
 import { VueTreeList, Tree, TreeNode } from "vue-tree-list";
 
 export default Vue.extend({
-  name: "tree",
+  name: "Tree",
   data() {
     return {
       newTree: {},
@@ -124,5 +124,3 @@ export default Vue.extend({
   },
 });
 </script>
-
-<style></style>
