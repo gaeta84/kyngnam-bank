@@ -4,18 +4,16 @@
   font-family: "Roboto";
 }
 
-.header_conteainer {
+.header_container {
   header {
-    height: 30px;
+    height: 10px;
     display: flex;
     text-align: center;
     justify-content: center;
     align-items: center;
-    background-color: black;
+    background: black;
     color: white;
-    margin: 0px auto;
-    padding: 20px;
-    border: 1px solid #bcbcbc;
+    padding: 5px;
   }
 }
 .dropzone_container {
@@ -28,16 +26,47 @@
     margin-top: 10px;
   }
 }
-.footer_conteainer {
+.footer_container {
   footer {
-    height: 5px;
+    height: 10px;
+    background: black;
     display: flex;
     text-align: center;
     justify-content: center;
     align-items: center;
-    background-color: black;
+    clear: both;
     color: white;
-    padding: 20px;
-    border: 1px solid #bcbcbc;
+    padding: 5px;
+  }
+}
+.box_container {
+  float: left;
+  margin-right: 20px;
+  width: 260px;
+  height: 350px;
+  padding: 15px 7px;
+  border: 2px solid;
+  border-radius: 25px;
+  .top_line {
+    width: 60px;
+    padding: 1px;
+    border: 2px solid;
+    border-radius: 30px;
+    margin: auto;
+    margin-bottom: 40px;
+  }
+  .preview_wrap {
+    overflow: hidden;
+    border: 2px solid;
+    padding: 5px;
+    height: 310px;
+    margin-top: -30px;
+    font-size: 13px;
+    .content {
+      position: relative;
+      top: 45%;
+      font-size: 15px;
+      text-align: center;
+    }
   }
 }

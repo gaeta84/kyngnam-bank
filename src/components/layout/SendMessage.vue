@@ -1,5 +1,6 @@
 <template>
   <div class="send_message_container">
+    <PhonePreview :item="item" :active="isActive" />
     <div class="inputs">
       <el-form :model="sendMessage" class="demo-ruleForm">
         <div class="topLine">----</div>
@@ -50,6 +51,7 @@
           <ConfirmDialog :dialog="successDialog" @confirm="successBtn" />
         </div>
       </el-form>
+      <div></div>
     </div>
   </div>
 </template>
@@ -59,9 +61,13 @@ import Vue from "vue";
 import Utils from "@/scripts/utils";
 import ConfirmDialog from "@/components/common/SendConfirm.vue";
 import SendMessageUseCase from "@/usecases/SendMessageUseCase";
+import PhonePreview from "@/components/common/PhonePreview.vue";
+
 export default Vue.extend({
   data() {
     return {
+      item: "미리보기 화면",
+      isActive: true,
       sendMessageUseCase: new SendMessageUseCase(),
       messageText: "SMS",
       byteLength: 0,
@@ -94,9 +100,10 @@ export default Vue.extend({
   },
   components: {
     ConfirmDialog,
+    PhonePreview,
   },
   methods: {
-    phoneNumberChange(e: any) {
+    phoneNumberChange(e: string) {
       let result = new Utils().checkNumber(e);
       if (result) {
         this.sendMessage.value = e;
@@ -120,8 +127,15 @@ export default Vue.extend({
     },
 
     // 문자보내기 총바이트로 유효성검사
-    bytesCount(e: any) {
+    bytesCount(e: string) {
       this.sendMessage.textarea = e;
+      this.item = e;
+      if (e) {
+        this.isActive = false;
+      } else {
+        this.isActive = true;
+        this.item = "미리보기 화면";
+      }
       this.byteLength = new Utils().checkByte(this.sendMessage.textarea);
 
       if (this.byteLength > 2000) {

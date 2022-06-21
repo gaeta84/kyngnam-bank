@@ -1,5 +1,5 @@
 <template>
-  <div class="header_conteainer">
+  <div class="header_container">
     <header>GNB</header>
   </div>
 </template>
