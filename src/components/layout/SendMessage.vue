@@ -1,5 +1,8 @@
 <template>
   <div class="send_message_container">
+    <ConfirmModal :dialog="confirmDialog" @confirm="confirmBtn" />
+    <ConfirmModal :dialog="successDialog" @confirm="successBtn" />
+
     <PhonePreview :item="item" :active="isActive" />
     <div class="inputs">
       <el-form :model="sendMessage" class="demo-ruleForm">
@@ -47,8 +50,9 @@
           <el-button type="primary" round size="small" @click="sendBtn"
             >즉시전송</el-button
           >
-          <ConfirmDialog :dialog="confirmDialog" @confirm="confirmBtn" />
-          <ConfirmDialog :dialog="successDialog" @confirm="successBtn" />
+
+          <!-- <ConfirmDialog :dialog="confirmDialog" @confirm="confirmBtn" />
+          <ConfirmDialog :dialog="successDialog" @confirm="successBtn" /> -->
         </div>
       </el-form>
       <div></div>
@@ -62,6 +66,7 @@ import Utils from "@/scripts/utils";
 import ConfirmDialog from "@/components/common/SendConfirm.vue";
 import SendMessageUseCase from "@/usecases/SendMessageUseCase";
 import PhonePreview from "@/components/common/PhonePreview.vue";
+import ConfirmModal from "@/components/common/ConfirmModal.vue";
 
 export default Vue.extend({
   data() {
@@ -94,13 +99,14 @@ export default Vue.extend({
         show: false,
         title: "Success",
         content: "문자전송이 성공하였습니다.",
-        hideCloseBtn: true,
+        hideBtn: false,
       },
     };
   },
   components: {
     ConfirmDialog,
     PhonePreview,
+    ConfirmModal,
   },
   methods: {
     phoneNumberChange(e: string) {
@@ -162,6 +168,8 @@ export default Vue.extend({
         this.successDialog.show = true;
         this.sendMessage.value = "";
         this.sendMessage.textarea = "";
+        this.isActive = true;
+        this.item = "미리보기 화면";
       }
     },
     successBtn() {
