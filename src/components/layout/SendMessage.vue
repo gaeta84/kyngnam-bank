@@ -94,12 +94,12 @@ export default Vue.extend({
         show: false,
         title: "Confirm",
         content: "문자를 전송하시겠습니까?",
+        hideBtn: true,
       },
       successDialog: {
         show: false,
         title: "Success",
         content: "문자전송이 성공하였습니다.",
-        hideBtn: false,
       },
     };
   },

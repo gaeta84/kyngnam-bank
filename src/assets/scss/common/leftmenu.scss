@@ -28,10 +28,17 @@
     input[type="checkbox"] + label {
       cursor: pointer;
       border-bottom: solid 1px black;
+      &:hover {
+        color: rgb(130, 126, 126);
+      }
+    }
+    input[type="checkbox"]:checked + label {
+      font-weight: bold;
     }
     .table_ctn {
       .menu_tree > ul {
         margin-top: -5px;
+
         li {
           margin-bottom: 10px;
         }
@@ -47,6 +54,12 @@
           font-size: 14px;
           color: #666666;
           cursor: pointer;
+          &:hover {
+            color: rgb(130, 126, 126);
+          }
+          &:active {
+            color: gold;
+          }
         }
         li:before {
           content: "∟";

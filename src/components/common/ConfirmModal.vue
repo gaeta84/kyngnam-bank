@@ -11,7 +11,9 @@
         {{ dialog.content }}
       </span>
       <div class="btn_box">
-        <button class="close_btn" @click="closeDialog">취소</button>
+        <button class="close_btn" @click="closeDialog" v-if="dialog.hideBtn">
+          취소
+        </button>
         <button class="confirm_btn" @click="confirm">확인</button>
       </div>
     </div>
@@ -31,6 +33,7 @@ export default Vue.extend({
           show: false,
           content: "문자를 전송하시겠습니까?",
           title: "알림",
+          hideBtn: false,
         };
       },
     },
