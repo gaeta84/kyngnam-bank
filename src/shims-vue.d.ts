@@ -12,3 +12,13 @@ declare module "vue-tree-list" {
   import { VueTreeList, Tree, TreeNode } from "vue-tree-list";
   export { VueTreeList, Tree, TreeNode };
 }
+
+declare module "vue-router-tab" {
+  import RouterTab from "vue-router-tab";
+  export default RouterTab;
+}
+
+declare module "vue-router-tab" {
+  import { RouterTabRoutes } from "vue-router-tab";
+  export { RouterTabRoutes };
+}

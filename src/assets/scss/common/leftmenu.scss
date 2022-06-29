@@ -2,6 +2,9 @@
 
 .side_menu_container {
   padding: 10px;
+  .router-link-exact-active {
+    color: black;
+  }
   .menu_tree_management {
     width: 250px;
     float: left;
@@ -52,8 +55,6 @@
           padding-right: 15px;
           margin-bottom: 8px;
           font-size: 14px;
-          color: #666666;
-          cursor: pointer;
           &:hover {
             color: rgb(130, 126, 126);
           }
