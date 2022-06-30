@@ -1,9 +1,9 @@
-import { SendMessageNetworkRequestValue } from "@/network/value/request/network-request-value";
+import { SendMessageNetworkRequestValue } from '@/network/value/request/network-request-value';
 import {
   ISendMessageHeaderRequestValue,
   ISendMessageRequestValue,
-} from "@/network/value/request/cmm-request-value";
-import { APIClient } from "@/network/api/api-client";
+} from '@/network/value/request/cmm-request-value';
+import { APIClient } from '@/network/api/api-client';
 
 export default class SendMessageNetworkAdapter {
   async sendMessage(

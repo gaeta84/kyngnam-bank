@@ -1,13 +1,13 @@
-import axios from "axios";
-import { APIResponse } from "@/network/api/api-response";
-import { APIRequest } from "@/network/api/api-request";
-import { APIError } from "@/network/api/api-error";
+import axios from 'axios';
+import { APIResponse } from '@/network/api/api-response';
+import { APIRequest } from '@/network/api/api-request';
+import { APIError } from '@/network/api/api-error';
 
 export enum HTTPMethod {
-  GET = "GET",
-  POST = "POST",
-  DELETE = "DELETE",
-  PUT = "PUT",
+  GET = 'GET',
+  POST = 'POST',
+  DELETE = 'DELETE',
+  PUT = 'PUT',
 }
 
 // APIClient is client class for xhr request
@@ -15,7 +15,7 @@ export class APIClient {
   static instance = new APIClient();
 
   // Base fqdn for api endpoints
-  baseURL: string = "https://httpbin.org/get";
+  baseURL = 'https://httpbin.org/get';
   // Timeout duration
   timeout: number = 15 * 1000;
 
@@ -23,7 +23,7 @@ export class APIClient {
     console.log(`api request [${request.method}] path::: ${request.path}`);
     console.log(request.params);
     const isRead = request.method === HTTPMethod.GET;
-    let params = {};
+    const params = {};
 
     return new Promise<U>((resolve, reject) => {
       // TODO 여기서 온라인,오프라인 상태 체크해줘야함.
@@ -52,12 +52,12 @@ export class APIClient {
 
   // Default parser
   private static parse<U extends APIResponse>(data: any): U {
-    let res = data;
+    const res = data;
 
     console.log(`res code:::${res.status}`);
     console.log(res);
     if (res.status === 200) {
-      let _data = res.data.data ? res.data.data : res.data;
+      const _data = res.data.data ? res.data.data : res.data;
       data.data = { code: 200, data: _data };
     }
     return data.data;

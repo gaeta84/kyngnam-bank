@@ -1,5 +1,5 @@
-import { ISendMessageRequestValue } from "@/network/value/request/cmm-request-value";
-import SendMessageAdapter from "@/network/adapter/cmm-tcm-adapter";
+import { ISendMessageRequestValue } from '@/network/value/request/cmm-request-value';
+import SendMessageAdapter from '@/network/adapter/cmm-tcm-adapter';
 
 export default class SendMessageUseCase {
   sendMessageAdapter = new SendMessageAdapter();
@@ -10,13 +10,13 @@ export default class SendMessageUseCase {
       message: params.message,
     };
     const headers = {
-      "x-talk-id": "desktop",
-      Authentication: "123456",
+      'x-talk-id': 'desktop',
+      'Authentication': '123456',
     };
     try {
       return await this.sendMessageAdapter.sendMessage(payload, headers);
     } catch (e: any) {
-      console.log("error: " + e);
+      console.log('error: ' + e);
     }
   }
 }

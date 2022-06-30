@@ -1,10 +1,10 @@
-import { AxiosResponse } from "axios";
-import { APIRequest } from "@/network/api/api-request";
-import { HTTPMethod } from "@/network/api/api-client";
+import { AxiosResponse } from 'axios';
+import { APIRequest } from '@/network/api/api-request';
+import { HTTPMethod } from '@/network/api/api-client';
 import {
   ISendMessageHeaderRequestValue,
   ISendMessageRequestValue,
-} from "@/network/value/request/cmm-request-value";
+} from '@/network/value/request/cmm-request-value';
 
 export namespace SendMessageNetworkRequestValue {
   export class SendMessage
@@ -12,7 +12,7 @@ export namespace SendMessageNetworkRequestValue {
   {
     // @ts-ignore
     response: any;
-    path = "https://httpbin.org/get";
+    path = 'https://httpbin.org/get';
     method = HTTPMethod.GET;
     parse = (data: AxiosResponse) => data.data;
     constructor(

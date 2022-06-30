@@ -1,6 +1,6 @@
 export interface ISendMessageHeaderRequestValue {
-  "x-talk-id": string,
-  "Authentication": string
+  'x-talk-id': string;
+  'Authentication': string;
 }
 
 export interface ISendMessageRequestValue {
