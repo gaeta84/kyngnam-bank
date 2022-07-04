@@ -31,10 +31,11 @@ export default Vue.extend({
   },
   methods: {
     home() {
-      this.$router.push("/");
+      this.$router.push("/main");
     },
     logout() {
       alert("로그아웃 되었습니다.");
+      this.$router.push("/");
     },
     isReady() {
       alert("준비중입니다.");

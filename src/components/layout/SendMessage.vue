@@ -50,9 +50,6 @@
           <el-button type="primary" round size="small" @click="sendBtn"
             >즉시전송</el-button
           >
-
-          <!-- <ConfirmDialog :dialog="confirmDialog" @confirm="confirmBtn" />
-          <ConfirmDialog :dialog="successDialog" @confirm="successBtn" /> -->
         </div>
       </el-form>
       <div></div>
@@ -63,7 +60,6 @@
 <script lang="ts">
 import Vue from "vue";
 import Utils from "@/scripts/utils";
-import ConfirmDialog from "@/components/common/SendConfirm.vue";
 import SendMessageUseCase from "@/usecases/SendMessageUseCase";
 import PhonePreview from "@/components/common/PhonePreview.vue";
 import ConfirmModal from "@/components/common/ConfirmModal.vue";
@@ -104,7 +100,6 @@ export default Vue.extend({
     };
   },
   components: {
-    ConfirmDialog,
     PhonePreview,
     ConfirmModal,
   },

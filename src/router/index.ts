@@ -10,20 +10,12 @@ Vue.use(VueRouter);
 
 const routes: Array<RouteConfig> = [
   {
-    path: "/",
+    path: "/main",
     component: Frame,
     children: [
       ...RouterTabRoutes,
       {
-        path: "/login",
-        name: "login",
-        component: importPage("Login"),
-        meta: {
-          title: "로그인",
-        },
-      },
-      {
-        path: "/",
+        path: "/main",
         name: "sendView",
         component: importPage("SendMessageView"),
         meta: {
@@ -271,6 +263,12 @@ const routes: Array<RouteConfig> = [
         },
       },
     ],
+  },
+
+  {
+    path: "/",
+    name: "login",
+    component: importPage("Login"),
   },
 ];
 

@@ -1,9 +1,9 @@
 <template>
   <div id="app">
-    <HeaderLayout />
-    <LeftMenu />
+    <HeaderLayout v-if="$route.name !== 'login'" />
+    <LeftMenu v-if="$route.name !== 'login'" />
     <router-view />
-    <FooterLayout />
+    <FooterLayout v-if="$route.name !== 'login'" />
   </div>
 </template>
 
