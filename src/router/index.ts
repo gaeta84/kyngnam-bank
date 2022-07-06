@@ -180,6 +180,7 @@ const routes: Array<RouteConfig> = [
         component: importPage("NotiTalkManage"),
         meta: {
           title: "알림톡관리",
+          KeepAlive: true,
         },
       },
       {
@@ -209,7 +210,7 @@ const routes: Array<RouteConfig> = [
       {
         path: "/rcsManage",
         name: "rcsManage",
-        component: importPage("RcsManage"),
+        component: importPage("RCSManage"),
         meta: {
           title: "RCS관리",
         },

@@ -16,18 +16,32 @@
     display: flex;
     margin: auto;
     padding: 60px;
-    width: 500px;
+    width: 580px;
     background-color: #eeeff1;
     border-radius: 5px;
     margin-top: 30px;
+    span {
+      font-size: 15px;
+      border-radius: 50%;
+      padding: 37px 20px;
+      line-height: 30px;
+      border: 1px solid #333;
+      position: relative;
+      background: #eeeff1;
+      text-align: center;
+      right: 12px;
+      top: 18%;
+    }
     input {
       display: block;
       margin: 10px 0;
       padding: 15px;
-      width: 300px;
+      width: 400px;
       height: 50px;
       border-radius: 20%;
+      font-size: 20px;
       clear: both;
+      text-align: center;
     }
     .text_box {
       position: relative;
@@ -49,7 +63,7 @@
     }
     button {
       float: left;
-      margin: 20px 0;
+      margin: 35px -20px;
       cursor: pointer;
       height: 220px;
       padding: 40px;

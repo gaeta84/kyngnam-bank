@@ -6,20 +6,14 @@
     >
     <div class="login_wrap">
       <div>
-        <label>아이디</label>
-        <input
-          type="text"
-          v-model="userId"
-          placeholder="Email"
-          class="user_id"
-        />
+        <span class="user_id">아이디</span>
+        <input type="text" v-model="userId" class="user_id" />
 
-        <label>비밀번호</label>
+        <span class="password">비밀번호</span>
         <input
           type="password"
           v-model="password"
           @keyup.enter="login"
-          placeholder="Password"
           class="user_password"
         />
         <div class="text_box">
