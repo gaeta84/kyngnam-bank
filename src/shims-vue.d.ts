@@ -23,6 +23,8 @@ declare module "vue-router-tab" {
   export { RouterTabRoutes };
 }
 
+declare module 'gridjs-vue';
+
 declare module "tiptap" {
   import { Editor, EditorContent, EditorMenuBar } from "tiptap";
   export { Editor, EditorContent, EditorMenuBar };
